@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DOCKET',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
@@ -44,13 +46,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         // appBar: AppBar(title: const Text('Home Screen')),
-        body: Container(
-      color: Colors.white,
-      child: Lottie.asset(
-        'assets/notetakingAnimation.json',
-        repeat: false,
-        reverse: false,
-        animate: true,
+        body: Center(
+      child: Container(
+        color: Colors.white,
+        child: Lottie.asset(
+          'assets/notetakingAnimation.json',
+          repeat: false,
+          reverse: false,
+          animate: true,
+        ),
       ),
     ));
   }

@@ -1,4 +1,5 @@
-import './screen2.dart';
+import 'package:testenv/dashboard.dart';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:math';
@@ -117,7 +118,7 @@ class _AuthCardState extends State<AuthCard> {
             .showSnackBar(SnackBar(content: Text("Login Successful")));
         await Future.delayed(const Duration(milliseconds: 500));
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Screen2()));
+            context, MaterialPageRoute(builder: (context) => dashboard()));
       } else {
         // Sign user up
         final cred = await FirebaseAuth.instance.createUserWithEmailAndPassword(

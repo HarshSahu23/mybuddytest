@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import './login.dart';
+import 'AuthScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:lottie/lottie.dart';
+import 'package:async/async.dart';
 
 // void main() => runApp(MyApp());
 Future<void> main() async {
@@ -13,19 +17,41 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'DOCKET',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        const Duration(milliseconds: 2200),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => AuthScreen())));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Screen')),
-      body: AuthScreen(),
-    );
+        // appBar: AppBar(title: const Text('Home Screen')),
+        body: Container(
+      color: Colors.white,
+      child: Lottie.asset(
+        'assets/notetakingAnimation.json',
+        repeat: false,
+        reverse: false,
+        animate: true,
+      ),
+    ));
   }
 }

@@ -5,7 +5,8 @@ import 'FinanceModule/mainFinance.dart';
 class dashboard extends StatelessWidget {
   const dashboard({Key? key}) : super(key: key);
 
-  Widget buildTab(String tabName, BuildContext context, Route rt, Color? clr) {
+  Widget buildTab(
+      String tabName, BuildContext context, String route, Color? clr) {
     final deviceSize = MediaQuery.of(context).size;
     final tabWidth = ((deviceSize.width * 0.85) / 2);
     final tabHeight = 110.0;
@@ -38,7 +39,10 @@ class dashboard extends StatelessWidget {
           style: TextStyle(fontSize: 28, fontFamily: 'Itim', color: clr),
         ),
         onPressed: () {
-          Navigator.push(context, rt);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            Navigator.pushNamed(context, route);
+          });
+          // mainFinance();
         },
       ),
     );
@@ -90,30 +94,16 @@ class dashboard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   buildTab(
-                      "Academic",
-                      context,
-                      MaterialPageRoute(builder: (context) => const Screen2()),
-                      Colors.pink[300]),
-                  buildTab(
-                      "Finance",
-                      context,
-                      MaterialPageRoute(builder: (context) => mainFinance()),
-                      Colors.green),
+                      "Academic", context, '/AcademicHome', Colors.pink[300]),
+                  buildTab("Finance", context, '/FinanceHome', Colors.green),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  buildTab("Hobbies", context, '/HobbiesHome', Colors.cyan),
                   buildTab(
-                      "Hobbies",
-                      context,
-                      MaterialPageRoute(builder: (context) => const Screen2()),
-                      Colors.cyan),
-                  buildTab(
-                      "Career",
-                      context,
-                      MaterialPageRoute(builder: (context) => const Screen2()),
-                      Colors.orange[500]),
+                      "Career", context, '/CareerHome', Colors.orange[500]),
                 ],
               ),
             ],

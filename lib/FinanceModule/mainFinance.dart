@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testenv/dashboard.dart';
 
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
@@ -32,19 +33,19 @@ class mainFinance extends StatelessWidget {
                   ),
                 ),
           )),
-      home: MyHomePage(),
+      home: FinanceHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class FinanceHomePage extends StatefulWidget {
   // String titleInput;
   // String amountInput;
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _FinanceHomePageState createState() => _FinanceHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _FinanceHomePageState extends State<FinanceHomePage> {
   final List<Transaction> _userTransactions = [
     // Transaction(
     //   id: 't1',
@@ -116,6 +117,13 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () => _startAddNewTransaction(context),
           ),
         ],
+        // leading: IconButton(
+        //     onPressed: () {
+        //       // Navigator.push(context,
+        //       //     MaterialPageRoute(builder: (context) => const dashboard()));
+        //       Navigator.pop(context);
+        //     },
+        //     icon: const Icon(Icons.keyboard_backspace_rounded)),
       ),
       body: SingleChildScrollView(
         child: Column(

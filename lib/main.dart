@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:testenv/FinanceModule/mainFinance.dart';
+import 'package:testenv/screen2.dart';
 import 'AuthScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:lottie/lottie.dart';
@@ -18,6 +20,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DOCKET',
+      routes: {
+        // '/': (context) => const FirstScreen(),
+        '/FinanceHome': (context) => mainFinance(),
+        '/AcademicHome': (context) => Screen2(),
+        '/CareerHome': (context) => Screen2(),
+        '/HobbiesHome': (context) => Screen2(),
+      },
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

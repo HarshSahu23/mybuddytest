@@ -174,37 +174,16 @@ class _AuthCardState extends State<AuthCard> {
           ),
           elevation: 8.0,
           child: Container(
-            height: _authMode == AuthMode.Signup ? 370 : 310,
+            height: _authMode == AuthMode.Signup ? 330 : 310,
             constraints: BoxConstraints(
-                minHeight: _authMode == AuthMode.Signup ? 320 : 260),
+                minHeight: _authMode == AuthMode.Signup ? 280 : 260),
             width: deviceSize.width * 0.75,
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(15.0),
             child: Form(
               key: _formKey,
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    Container(
-                        height: 36,
-                        width: (deviceSize.width) * 0.7,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ElevatedButton(
-                                onPressed: (() {
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const dashboard()));
-                                }),
-                                child: const Text(
-                                  "Maybe Later",
-                                  style: TextStyle(fontSize: 16),
-                                )),
-                          ],
-                        )),
                     TextFormField(
                       decoration: InputDecoration(labelText: 'E-Mail'),
                       keyboardType: TextInputType.emailAddress,
@@ -263,18 +242,39 @@ class _AuthCardState extends State<AuthCard> {
                                 horizontal: 30.0, vertical: 8.0),
                             backgroundColor: Colors.blue),
                       ),
-                    TextButton(
-                      child: Text(
-                          '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
-                      onPressed: _switchAuthMode,
-                      style: TextButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 30.0, vertical: 4),
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          foregroundColor: Colors.cyan),
+                    const SizedBox(
+                      height: 5,
                     ),
+                    Row(
+                      children: [
+                        TextButton(
+                          child: Text(
+                              '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
+                          onPressed: _switchAuthMode,
+                          style: TextButton.styleFrom(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 2),
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              foregroundColor: Colors.cyan),
+                        ),
+                        Expanded(child: Container()),
+                        TextButton(
+                            onPressed: (() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const dashboard()));
+                            }),
+                            child: const Text(
+                              "Maybe Later",
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.grey),
+                            )),
+                      ],
+                    )
                   ],
                 ),
+                //here try
               ),
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screen2.dart';
+import 'FinanceModule/mainFinance.dart';
 
 class dashboard extends StatelessWidget {
   const dashboard({Key? key}) : super(key: key);
@@ -96,7 +97,7 @@ class dashboard extends StatelessWidget {
                   buildTab(
                       "Finance",
                       context,
-                      MaterialPageRoute(builder: (context) => const Screen2()),
+                      MaterialPageRoute(builder: (context) => mainFinance()),
                       Colors.green),
                 ],
               ),

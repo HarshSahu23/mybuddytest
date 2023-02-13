@@ -9,10 +9,16 @@ class Screen2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Screen2")),
-      body: const Center(
-        child: Text(
-          "new screen ",
-          style: TextStyle(fontSize: 24),
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(30),
+          child: Container(
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage("assets/WIP.png"),
+              fit: BoxFit.fitWidth,
+            )),
+          ),
         ),
       ),
     );

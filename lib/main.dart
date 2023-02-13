@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:testenv/Academics/CGPA/mainGPA.dart';
+import 'package:testenv/Academics/mainAcademic.dart';
 import 'package:testenv/FinanceModule/mainFinance.dart';
+import 'package:testenv/dashboard.dart';
 import 'package:testenv/screen2.dart';
-import 'AuthScreen.dart';
+import 'Authentication/AuthScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:lottie/lottie.dart';
 import 'package:async/async.dart';
@@ -22,10 +25,12 @@ class MyApp extends StatelessWidget {
       title: 'DOCKET',
       routes: {
         // '/': (context) => const FirstScreen(),
+        '/Dashboard': (context) => dashboard(),
         '/FinanceHome': (context) => mainFinance(),
-        '/AcademicHome': (context) => Screen2(),
+        '/AcademicHome': (context) => mainAcademic(),
         '/CareerHome': (context) => Screen2(),
         '/HobbiesHome': (context) => Screen2(),
+        '/cgpa': (context) => MainCGPA(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

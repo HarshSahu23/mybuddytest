@@ -119,9 +119,8 @@ class _FinanceHomePageState extends State<FinanceHomePage> {
         ],
         // leading: IconButton(
         //     onPressed: () {
-        //       // Navigator.push(context,
-        //       //     MaterialPageRoute(builder: (context) => const dashboard()));
-        //       Navigator.pop(context);
+        //       Navigator.pushNamed(context, '/Dashboard');
+        //       // Navigator.pop(context);
         //     },
         //     icon: const Icon(Icons.keyboard_backspace_rounded)),
       ),

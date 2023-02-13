@@ -6,12 +6,63 @@ class dashboard extends StatelessWidget {
   const dashboard({Key? key}) : super(key: key);
 
   Widget buildTab(
-      String tabName, BuildContext context, String route, Color? clr) {
+    String tabName,
+    BuildContext context,
+    String route,
+    Color? clr,
+  ) {
     final deviceSize = MediaQuery.of(context).size;
     final tabWidth = ((deviceSize.width * 0.85) / 2);
     final tabHeight = 110.0;
     return Container(
       width: tabWidth,
+      height: tabHeight,
+      padding: EdgeInsets.fromLTRB(2, 10, 2, 10),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            //Bottom right shadow is darker
+            BoxShadow(
+              color: Colors.grey.shade600,
+              offset: Offset(5, 5),
+              blurRadius: 15,
+              spreadRadius: 1,
+            ),
+            // Top left lighter shadow
+            const BoxShadow(
+              color: Colors.white,
+              offset: Offset(-5, -5),
+              blurRadius: 15,
+              spreadRadius: 1,
+            )
+          ]),
+      child: TextButton(
+        child: Text(
+          tabName,
+          style: TextStyle(fontSize: 32, fontFamily: 'Itim', color: clr),
+        ),
+        onPressed: () {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            Navigator.pushNamed(context, route);
+          });
+          // mainFinance();
+        },
+      ),
+    );
+  }
+
+  Widget buildTab2(
+    String tabName,
+    BuildContext context,
+    String route,
+    Color? clr,
+  ) {
+    final deviceSize = MediaQuery.of(context).size;
+    final tabWidth = ((deviceSize.width * 0.85) / 2);
+    final tabHeight = 110.0;
+    return Container(
+      width: deviceSize.width * 0.85,
       height: tabHeight,
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -36,7 +87,7 @@ class dashboard extends StatelessWidget {
       child: TextButton(
         child: Text(
           tabName,
-          style: TextStyle(fontSize: 28, fontFamily: 'Itim', color: clr),
+          style: TextStyle(fontSize: 32, fontFamily: 'Itim', color: clr),
         ),
         onPressed: () {
           WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -101,9 +152,10 @@ class dashboard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  buildTab("Hobbies", context, '/HobbiesHome', Colors.cyan),
-                  buildTab(
-                      "Career", context, '/CareerHome', Colors.orange[500]),
+                  buildTab2("Hobbies & Careers", context, '/HobbiesHome',
+                      Colors.cyan),
+                  // buildTab(
+                  //     "Career", context, '/CareerHome', Colors.orange[500]),
                 ],
               ),
             ],

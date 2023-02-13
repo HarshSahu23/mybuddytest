@@ -71,6 +71,12 @@ flutter:
     - assets/notetakingAnimation.json
     - assets/dashboard_pic1.png
     - assets/waiting.png
+    - assets/academicAppBar.png
+    - assets/academicCGPA.png
+    - assets/academicSWOT.png
+    - assets/academicSchedule.png
+    - assets/academicNotes.png
+    - assets/WIP.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

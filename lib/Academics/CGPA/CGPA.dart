@@ -39,12 +39,12 @@ class _CGPAState extends State<CGPA> {
           GestureDetector(
             onTap: () {
               print("Gesture Detected");
-              int a = (int.parse(TEC_nowGPA.text.toString())) *
+              double a = (double.parse(TEC_nowGPA.text.toString())) *
                   (int.parse(TEC_nowSemCredit.text.toString()));
-              int b = (int.parse(TEC_oldCGPA.text.toString())) *
+              double b = (double.parse(TEC_oldCGPA.text.toString())) *
                   (int.parse(TEC_oldTotalCredits.text.toString()));
-              int c = (int.parse(TEC_nowSemCredit.text.toString())) +
-                  (int.parse(TEC_oldTotalCredits.text.toString()));
+              double c = (double.parse(TEC_nowSemCredit.text.toString())) +
+                  (double.parse(TEC_oldTotalCredits.text.toString()));
               showModalBottomSheet(
                   context: context,
                   backgroundColor: Colors.transparent,
